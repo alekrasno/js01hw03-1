@@ -1,0 +1,37 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>Простые числа</title>
+  </head> 
+  <body>
+    <script>
+		
+		
+		var simpleTest = function(x)	{ // Проверка на "простоту"
+			for (i = 2; i <= 100; i++) //Пробы на делимость на [1..100]
+				test = true;	// Флаг простого числа
+				if (i != x)	{
+					//j = x / i;
+					if ((x / i) - Math.floor(x / i) == 0)	{ //Есть остаток от деления 
+						test = false; 
+						break;
+					}
+				}	
+			return test;
+		};
+			
+		
+		
+		
+		
+//================		
+		
+		for (i = 1; i <= 100; i++)	{
+			if (simpleTest(i) == true)	{
+				console.log (i);
+			}
+		}
+		
+    </script>
+  </body>
+</html> 
