@@ -6,31 +6,36 @@
   </head> 
   <body>
     <script>
-		var x = 0; // Число
-		var lowerRange = 0; // Нижняя граница диапазона
-		var upperRange = 100; // Верхняя граница диапазона
-		var i = 1; // Счетчик делителя
-		var simpleNums = []; //Массив простых чисел
+		//var x = 0; // Число
+		//var lowerRange = 0; // Нижняя граница диапазона
+		//var upperRange = 100; // Верхняя граница диапазона
+		//var i = 0; // Счетчик делителя
+		//var simpleNums = []; //Массив простых чисел
+		var intDividers = []; // Массив с целыми делителями
 		var simpleNumCheck = function(x)	{ // Проверка числа на "простоту"
-			let n = 2; // Счетчик допустимых случаев деления без остатка
-				while (i <= 100)	{
-					let div = x / i;
-					console.log('i = ' + i +' Разница между результатом деления и остатком ' + (div - Math.floor(div))); 
-					while ((div - Math.floor(div)) == 0)	{
-						while (n >= 0)	{
-						console.log('n = ' + n);
-						n--;	
-						i++;
+			let i = 1;	
+			console.log('Проверяется ' + x);
+			while (i <= 100)	{
+				console.log('i = ' + i);
+				let div = x / i;					
+				while ((div - Math.floor(div)) == 0)	{ // Оценка остатка от деления 
+					console.log('Целый делитель ' + i); // Если делится без остатка
+					intDividers.push (i);	// Добавляем i в массив делителей x					
+						while (intDividers.length <= 2)	{		// Если делителей меньше 3
+							console.log('Целых делителей ' + intDividers.length);
+							i++;	// Наращиваем делитель
 						}
-						break;
-					}
-				i++;
 				}
-		return (n >= 0);
+			}
+			//break; // Финита ля комедиа
+			console.log('Целые делители ' + intDividers);
+			return (intDividers.length < 3);
 		};
-		
+
+// ----------------------------------------------
+
 		var num =+ prompt('Введите число ');
-		console.log('Число простое? ' + simpleNumCheck(num));
+		console.log('Число простое? ' + simpleNumCheck(num) + ' Делится на ' + intDividers);
 		
 /*		while ((x >= lowerRange) && (x <= upperRange))	{
 			while (simpleNumCheck == true)	{
