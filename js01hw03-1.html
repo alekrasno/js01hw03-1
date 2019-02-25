@@ -13,18 +13,19 @@
 		var simpleNums = []; //Массив простых чисел
 		var simpleNumCheck = function(x)	{ // Проверка числа на "простоту"
 			let n = 2; // Счетчик допустимых случаев деления без остатка
-			while (n >= 0)	{
 				while (i <= 100)	{
 					let div = x / i;
 					console.log('i = ' + i +' Разница между результатом деления и остатком ' + (div - Math.floor(div))); 
-					while ((div - Math.floor(div)) != 0)	{
+					while ((div - Math.floor(div)) == 0)	{
+						while (n >= 0)	{
+						console.log('n = ' + n);
+						n--;	
 						i++;
+						}
+						break;
 					}
-					i++;
-					n--;
-					console.log('n = ' + n);
+				i++;
 				}
-			}	
 		return (n >= 0);
 		};
 		
