@@ -1,6 +1,7 @@
 <DOCTYPE html>
 <html>
   <head>
+	<meta charset="utf-8" /> 
     <title>Простые числа</title>
   </head> 
   <body>
@@ -11,16 +12,32 @@
 		var i = 1; // Счетчик делителя
 		var simpleNums = []; //Массив простых чисел
 		var simpleNumCheck = function(x)	{ // Проверка числа на "простоту"
-		}
+			let n = 2; // Счетчик допустимых случаев деления без остатка
+			while (n >= 0)	{
+				while (i <= 100)	{
+					let div = x / i;
+					console.log('i = ' + i +' Разница между результатом деления и остатком ' + (div - Math.floor(div))); 
+					while ((div - Math.floor(div)) != 0)	{
+						i++;
+					}
+					i++;
+					n--;
+					console.log('n = ' + n);
+				}
+			}	
+		return (n >= 0);
+		};
 		
+		var num =+ prompt('Введите число ');
+		console.log('Число простое? ' + simpleNumCheck(num));
 		
-		while ((x >= lowerRange) && (x <= upperRange))	{
+/*		while ((x >= lowerRange) && (x <= upperRange))	{
 			while (simpleNumCheck == true)	{
 				simpleNums.push (x);
 				x++;
 			}
 		}
-		console.log(simpleNums);		
+		console.log(simpleNums);*/		
 		
     </script>
   </body>
